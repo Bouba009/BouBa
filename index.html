@@ -785,4 +785,1987 @@
 
         .call-btn:hover {
             transform: scale(1.02);
-            box-shadow: 0 5px 20px rgba(0,
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Invoice */
+        .invoice-section {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .invoice-section.active {
+            display: block;
+        }
+
+        .invoice-img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+        }
+
+        /* ============ DELIVERY PAGE ============ */
+        .delivery-page {
+            padding: 20px;
+        }
+
+        .delivery-status-bar {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-light);
+        }
+
+        .status-toggle {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #ccc;
+            border-radius: 34px;
+            transition: 0.4s;
+        }
+
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background: white;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: var(--success);
+        }
+
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(26px);
+        }
+
+        .online-status {
+            font-weight: 600;
+            color: #999;
+        }
+
+        .online-status.active {
+            color: var(--success);
+        }
+
+        .earnings-today {
+            text-align: left;
+        }
+
+        body.rtl .earnings-today {
+            text-align: right;
+        }
+
+        .earnings-label {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .earnings-amount {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--success);
+        }
+
+        /* Orders List */
+        .orders-section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .no-orders {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+        }
+
+        .no-orders i {
+            font-size: 4rem;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .no-orders p {
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        /* Order Card */
+        .order-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-light);
+            border-right: 5px solid var(--primary);
+            animation: slideIn 0.5s ease;
+        }
+
+        body.ltr .order-card {
+            border-right: none;
+            border-left: 5px solid var(--primary);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .order-card.new {
+            animation: newOrder 0.5s ease infinite alternate;
+        }
+
+        @keyframes newOrder {
+            from { box-shadow: var(--shadow-light); }
+            to { box-shadow: 0 0 30px rgba(255, 107, 53, 0.5); }
+        }
+
+        .order-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .order-time {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .order-price {
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        .order-details {
+            margin-bottom: 15px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .order-item i {
+            color: var(--primary);
+            width: 25px;
+        }
+
+        .order-item strong {
+            color: var(--secondary);
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .accept-btn, .reject-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .accept-btn {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .accept-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .reject-btn {
+            background: #f8f9fa;
+            color: var(--danger);
+            border: 2px solid var(--danger);
+        }
+
+        .reject-btn:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* Active Order View */
+        .active-order-view {
+            display: none;
+            padding: 20px;
+        }
+
+        .active-order-view.active {
+            display: block;
+        }
+
+        .active-order-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .customer-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .customer-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .customer-details h4 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+
+        .customer-details a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .status-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .status-btn {
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .status-btn:hover {
+            border-color: var(--primary);
+            background: #fff5f0;
+        }
+
+        .status-btn.active {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .status-btn i {
+            font-size: 1.2rem;
+        }
+
+        .upload-invoice {
+            margin: 20px 0;
+        }
+
+        .upload-btn {
+            width: 100%;
+            padding: 20px;
+            border: 3px dashed var(--primary);
+            background: #fff5f0;
+            border-radius: 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover {
+            background: #ffe5d9;
+        }
+
+        .upload-btn i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .upload-btn span {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        #invoicePreview {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .complete-delivery {
+            width: 100%;
+            padding: 18px;
+            background: var(--success);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+            font-family: inherit;
+            margin-top: 20px;
+        }
+
+        .complete-delivery:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.4);
+        }
+
+        /* ============ SUCCESS MODAL ============ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .success-modal {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            margin: 20px;
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            animation: successPulse 1s infinite;
+        }
+
+        @keyframes successPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 184, 148, 0.7); }
+            50% { box-shadow: 0 0 0 20px rgba(0, 184, 148, 0); }
+        }
+
+        .success-icon i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .success-modal h2 {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .success-modal p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .success-modal .amount {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--success);
+            margin-bottom: 25px;
+        }
+
+        .modal-close {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* ============ NOTIFICATION ============ */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            align-items: center;
+            gap: 15px;
+            z-index: 9999;
+            animation: slideRight 0.5s ease;
+            max-width: 350px;
+        }
+
+        body.rtl .notification {
+            right: auto;
+            left: 20px;
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .notification.active {
+            display: flex;
+        }
+
+        .notification-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            animation: ring 0.5s ease infinite;
+        }
+
+        @keyframes ring {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            75% { transform: rotate(-15deg); }
+        }
+
+        .notification-content h4 {
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .notification-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* ============ FOOTER ============ */
+        .app-footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+
+            .logo-icon {
+                font-size: 60px;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .role-card {
+                width: 100%;
+                max-width: 300px;
+                padding: 30px;
+            }
+
+            .role-icon {
+                font-size: 50px;
+            }
+
+            .lang-selector {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .lang-btn {
+                width: 100%;
+            }
+
+            .app-logo {
+                font-size: 1.4rem;
+            }
+
+            .progress-steps {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .progress-steps::before,
+            .progress-line {
+                display: none;
+            }
+
+            .step {
+                flex: 0 0 45%;
+            }
+        }
+
+        /* Custom Leaflet Marker Animations */
+        .delivery-marker {
+            animation: markerBounce 1s infinite;
+        }
+
+        @keyframes markerBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .pulse-marker {
+            position: relative;
+        }
+
+        .pulse-marker::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: markerPulse 1.5s infinite;
+            z-index: -1;
+        }
+
+        @keyframes markerPulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Hide elements */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Audio notification visual feedback */
+        .sound-wave {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 30px;
+        }
+
+        .sound-wave span {
+            width: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+            animation: wave 0.5s infinite ease-in-out;
+        }
+
+        .sound-wave span:nth-child(1) { animation-delay: 0s; height: 10px; }
+        .sound-wave span:nth-child(2) { animation-delay: 0.1s; height: 20px; }
+        .sound-wave span:nth-child(3) { animation-delay: 0.2s; height: 15px; }
+        .sound-wave span:nth-child(4) { animation-delay: 0.3s; height: 25px; }
+        .sound-wave span:nth-child(5) { animation-delay: 0.4s; height: 10px; }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+        }
+    </style>
+</head>
+<body class="rtl">
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader">
+            <div class="loader-bike">🛵</div>
+            <h1>Comondi</h1>
+        </div>
+    </div>
+
+    <!-- Audio for notifications -->
+    <audio id="notificationSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Landing Page -->
+    <div class="landing-page" id="landingPage">
+        <div class="particles" id="particles"></div>
+        
+        <div class="landing-content">
+            <div class="logo-container">
+                <div class="logo-icon">🛵</div>
+                <h1 class="logo">Comondi</h1>
+            </div>
+            
+            <p class="tagline" id="tagline">توصيل طعامك بأسرع وقت | Livraison rapide de votre nourriture</p>
+            
+            <div class="lang-selector">
+                <button class="lang-btn active" onclick="setLanguage('ar')" id="langAr">
+                    🇩🇿 العربية
+                </button>
+                <button class="lang-btn" onclick="setLanguage('fr')" id="langFr">
+                    🇫🇷 Français
+                </button>
+            </div>
+            
+            <div class="role-selection">
+                <div class="role-card" onclick="selectRole('customer')">
+                    <span class="role-icon">🍔</span>
+                    <h3 id="customerRoleTitle">أريد طلب الطعام</h3>
+                    <p id="customerRoleDesc">اطلب وجبتك المفضلة الآن</p>
+                </div>
+                
+                <div class="role-card" onclick="selectRole('delivery')">
+                    <span class="role-icon">🛵</span>
+                    <h3 id="deliveryRoleTitle">أنا موصل طعام</h3>
+                    <p id="deliveryRoleDesc">ابدأ العمل واكسب المال</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer App -->
+    <div class="app-container" id="customerApp">
+        <header class="app-header">
+            <div class="app-logo">🛵 Comondi</div>
+            <div class="header-actions">
+                <button class="header-btn" onclick="toggleLanguage()" title="تغيير اللغة">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <button class="header-btn" onclick="goHome()" title="الرئيسية">
+                    <i class="fas fa-home"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Order Form -->
+        <div class="customer-page" id="orderFormSection">
+            <div class="order-form">
+                <h2 class="form-title">
+                    <i class="fas fa-utensils"></i>
+                    <span id="formTitle">اطلب وجبتك الآن</span>
+                </h2>
+
+                <div class="input-group">
+                    <label id="foodLabel">اسم الأكل</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-hamburger"></i>
+                        <input type="text" id="foodName" placeholder="مثال: Sandwich, Tacos..." autocomplete="off">
+                    </div>
+                    <div class="suggestions" id="foodSuggestions"></div>
+                </div>
+
+                <div class="input-group">
+                    <label id="shopLabel">اسم المحل</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-store"></i>
+                        <input type="text" id="shopName" placeholder="مثال: ADM Food..." autocomplete="off">
+                    </div>
+                    <div class="suggestions" id="shopSuggestions"></div>
+                </div>
+
+                <div class="input-group">
+                    <label id="phoneLabel">رقم الهاتف</label>
+                    <div class="phone-input">
+                        <input type="text" class="country-code" value="+213" readonly>
+                        <div class="input-wrapper phone-number">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="customerPhone" placeholder="0555123456">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label id="notesLabel">ملاحظات إضافية (اختياري)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-comment"></i>
+                        <textarea id="orderNotes" rows="2" placeholder="أي تعليمات خاصة..."></textarea>
+                    </div>
+                </div>
+
+                <button class="location-btn" id="locationBtn" onclick="getLocation()">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="locationBtnText">مشاركة موقعي عبر GPS</span>
+                </button>
+
+                <div class="location-status" id="locationStatus">
+                    <i class="fas fa-check-circle"></i>
+                    <span id="locationStatusText">تم تحديد موقعك بنجاح!</span>
+                </div>
+
+                <div class="price-tag">
+                    <p id="deliveryFeeLabel">رسوم التوصيل</p>
+                    <span>100 <small>دج</small></span>
+                </div>
+
+                <button class="submit-order" id="submitOrder" onclick="submitOrder()" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                    <span id="submitBtnText">إرسال الطلب</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Order Tracking -->
+        <div class="tracking-container" id="trackingSection">
+            <div class="tracking-card">
+                <div class="tracking-header">
+                    <div class="order-id" id="trackingOrderId">#12345</div>
+                    <div class="order-status pending" id="trackingStatus">
+                        <i class="fas fa-clock status-icon"></i>
+                        <span id="trackingStatusText">في انتظار القبول</span>
+                    </div>
+                </div>
+
+                <div class="progress-steps">
+                    <div class="progress-line" id="progressLine"></div>
+                    
+                    <div class="step active" id="step1">
+                        <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <span class="step-label" id="step1Label">تم الطلب</span>
+                    </div>
+                    
+                    <div class="step" id="step2">
+                        <div class="step-icon"><i class="fas fa-user-check"></i></div>
+                        <span class="step-label" id="step2Label">تم القبول</span>
+                    </div>
+                    
+                    <div class="step" id="step3">
+                        <div class="step-icon"><i class="fas fa-store"></i></div>
+                        <span class="step-label" id="step3Label">في المحل</span>
+                    </div>
+                    
+                    <div class="step" id="step4">
+                        <div class="step-icon"><i class="fas fa-motorcycle"></i></div>
+                        <span class="step-label" id="step4Label">في الطريق</span>
+                    </div>
+                    
+                    <div class="step" id="step5">
+                        <div class="step-icon"><i class="fas fa-check-double"></i></div>
+                        <span class="step-label" id="step5Label">تم التوصيل</span>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <div id="customerMap"></div>
+                </div>
+
+                <div class="delivery-info" id="deliveryInfo">
+                    <div class="delivery-profile">
+                        <div class="delivery-avatar">🛵</div>
+                        <div>
+                            <div class="delivery-name" id="deliveryName">محمد</div>
+                            <div class="delivery-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="tel:+213555123456" class="call-btn" id="callDelivery">
+                        <i class="fas fa-phone"></i>
+                        <span id="callBtnText">اتصل بالموصل</span>
+                    </a>
+                </div>
+
+                <div class="invoice-section" id="invoiceSection">
+                    <h4 id="invoiceTitle"><i class="fas fa-receipt"></i> الفاتورة</h4>
+                    <img id="invoiceImage" class="invoice-img" src="" alt="Invoice">
+                </div>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <div class="footer-logo">🛵 Comondi</div>
+            <p class="footer-text" id="footerText">توصيل سريع وموثوق في كل مكان</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Delivery App -->
+    <div class="app-container" id="deliveryApp">
+        <header class="app-header">
+            <div class="app-logo">🛵 Comondi</div>
+            <div class="header-actions">
+                <button class="header-btn" onclick="toggleLanguage()" title="تغيير اللغة">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <button class="header-btn" onclick="goHome()" title="الرئيسية">
+                    <i class="fas fa-home"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="delivery-page" id="deliveryOrdersList">
+            <div class="delivery-status-bar">
+                <div class="status-toggle">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="onlineToggle" onchange="toggleOnlineStatus()">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="online-status" id="onlineStatusText">غير متصل</span>
+                </div>
+                <div class="earnings-today">
+                    <div class="earnings-label" id="earningsLabel">أرباح اليوم</div>
+                    <div class="earnings-amount" id="todayEarnings">0 دج</div>
+                </div>
+            </div>
+
+            <div class="orders-section">
+                <h3 class="section-title">
+                    <i class="fas fa-bell"></i>
+                    <span id="newOrdersTitle">الطلبات الجديدة</span>
+                    <div class="sound-wave hidden" id="soundWave">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </h3>
+                
+                <div id="ordersList">
+                    <div class="no-orders" id="noOrders">
+                        <i class="fas fa-inbox"></i>
+                        <p id="noOrdersText">لا توجد طلبات جديدة حالياً</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div id="deliveryMap"></div>
+            </div>
+        </div>
+
+        <!-- Active Order View -->
+        <div class="active-order-view" id="activeOrderView">
+            <div class="active-order-card">
+                <div class="tracking-header">
+                    <div class="order-id" id="activeOrderId">#12345</div>
+                    <div class="order-price" id="activeOrderPrice">100 دج</div>
+                </div>
+
+                <div class="customer-info">
+                    <div class="customer-avatar" id="customerInitial">م</div>
+                    <div class="customer-details">
+                        <h4 id="customerName">الزبون</h4>
+                        <a href="tel:" id="customerPhoneLink">
+                            <i class="fas fa-phone"></i>
+                            <span id="customerPhoneDisplay">0555123456</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="order-details">
+                    <div class="order-item">
+                        <i class="fas fa-hamburger"></i>
+                        <span id="orderFoodName">Sandwich</span>
+                    </div>
+                    <div class="order-item">
+                        <i class="fas fa-store"></i>
+                        <span id="orderShopName">ADM Food</span>
+                    </div>
+                    <div class="order-item">
+                        <i class="fas fa-comment"></i>
+                        <span id="orderNotesDisplay">لا توجد ملاحظات</span>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <div id="activeOrderMap"></div>
+                </div>
+
+                <div class="status-buttons">
+                    <button class="status-btn" onclick="updateStatus('going_to_shop')" id="statusBtn1">
+                        <i class="fas fa-store"></i>
+                        <span id="statusBtn1Text">في طريقي إلى المحل</span>
+                    </button>
+                    
+                    <button class="status-btn" onclick="updateStatus('order_received')" id="statusBtn2">
+                        <i class="fas fa-box"></i>
+                        <span id="statusBtn2Text">تم طلب احتياجكم</span>
+                    </button>
+                    
+                    <button class="status-btn" onclick="updateStatus('on_the_way')" id="statusBtn3">
+                        <i class="fas fa-motorcycle"></i>
+                        <span id="statusBtn3Text">أنا في الطريق إليك</span>
+                    </button>
+                </div>
+
+                <div class="upload-invoice">
+                    <label class="upload-btn" for="invoiceInput">
+                        <i class="fas fa-camera"></i>
+                        <span id="uploadBtnText">تصوير الفاتورة</span>
+                    </label>
+                    <input type="file" id="invoiceInput" accept="image/*" capture="camera" style="display:none" onchange="uploadInvoice(event)">
+                    <img id="invoicePreview" src="" alt="Invoice Preview">
+                </div>
+
+                <button class="complete-delivery" onclick="completeDelivery()" id="completeBtn">
+                    <i class="fas fa-check-double"></i>
+                    <span id="completeBtnText">تأكيد التوصيل</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <div class="footer-logo">🛵 Comondi</div>
+            <p class="footer-text" id="footerText2">اكسب المال بتوصيل الطعام</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 id="successTitle">تم التوصيل بنجاح!</h2>
+            <p id="successMessage">شكراً لاستخدامك Comondi</p>
+            <div class="amount" id="successAmount">100 دج</div>
+            <button class="modal-close" onclick="closeModal()" id="closeModalBtn">إغلاق</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-icon">
+            <i class="fas fa-bell"></i>
+        </div>
+        <div class="notification-content">
+            <h4 id="notifTitle">طلب جديد!</h4>
+            <p id="notifMessage">لديك طلب توصيل جديد</p>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage-compat.js"></script>
+
+    <script>
+        // ==================== FIREBASE CONFIG ====================
+        const firebaseConfig = {
+            apiKey: "AIzaSyACuXD3szL8eudcmU5QtPWRT9Ha8k782DA",
+            authDomain: "gouba-80f4c.firebaseapp.com",
+            projectId: "gouba-80f4c",
+            storageBucket: "gouba-80f4c.appspot.com",
+            messagingSenderId: "640752558914",
+            appId: "1:640752558914:web:75951a854ee68f4b3b1edb",
+            measurementId: "G-Y5T48PJ38Z",
+            databaseURL: "https://gouba-80f4c-default-rtdb.firebaseio.com"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+        const storage = firebase.storage();
+
+        // ==================== TRANSLATIONS ====================
+        const translations = {
+            ar: {
+                tagline: "توصيل طعامك بأسرع وقت",
+                customerRoleTitle: "أريد طلب الطعام",
+                customerRoleDesc: "اطلب وجبتك المفضلة الآن",
+                deliveryRoleTitle: "أنا موصل طعام",
+                deliveryRoleDesc: "ابدأ العمل واكسب المال",
+                formTitle: "اطلب وجبتك الآن",
+                foodLabel: "اسم الأكل",
+                shopLabel: "اسم المحل",
+                phoneLabel: "رقم الهاتف",
+                notesLabel: "ملاحظات إضافية (اختياري)",
+                locationBtnText: "مشاركة موقعي عبر GPS",
+                locationStatusText: "تم تحديد موقعك بنجاح!",
+                deliveryFeeLabel: "رسوم التوصيل",
+                submitBtnText: "إرسال الطلب",
+                trackingStatusPending: "في انتظار القبول",
+                trackingStatusAccepted: "تم قبول الطلب",
+                trackingStatusOnWay: "الموصل في الطريق",
+                trackingStatusDelivered: "تم التوصيل",
+                step1Label: "تم الطلب",
+                step2Label: "تم القبول",
+                step3Label: "في المحل",
+                step4Label: "في الطريق",
+                step5Label: "تم التوصيل",
+                callBtnText: "اتصل بالموصل",
+                invoiceTitle: "الفاتورة",
+                footerText: "توصيل سريع وموثوق في كل مكان",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                earningsLabel: "أرباح اليوم",
+                newOrdersTitle: "الطلبات الجديدة",
+                noOrdersText: "لا توجد طلبات جديدة حالياً",
+                acceptBtn: "قبول",
+                rejectBtn: "رفض",
+                statusBtn1Text: "في طريقي إلى المحل",
+                statusBtn2Text: "تم طلب احتياجكم",
+                statusBtn3Text: "أنا في الطريق إليك",
+                uploadBtnText: "تصوير الفاتورة",
+                completeBtnText: "تأكيد التوصيل",
+                successTitle: "تم التوصيل بنجاح!",
+                successMessage: "شكراً لاستخدامك Comondi",
+                closeModalBtn: "إغلاق",
+                notifTitle: "طلب جديد!",
+                notifMessage: "لديك طلب توصيل جديد",
+                locatingText: "جاري تحديد الموقع...",
+                footerText2: "اكسب المال بتوصيل الطعام",
+                orderSentSuccess: "تم إرسال طلبك بنجاح!",
+                waitingDriver: "في انتظار موصل..."
+            },
+            fr: {
+                tagline: "Livraison rapide de votre nourriture",
+                customerRoleTitle: "Je veux commander",
+                customerRoleDesc: "Commandez votre repas préféré",
+                deliveryRoleTitle: "Je suis livreur",
+                deliveryRoleDesc: "Commencez à gagner de l'argent",
+                formTitle: "Commandez maintenant",
+                foodLabel: "Nom du plat",
+                shopLabel: "Nom du restaurant",
+                phoneLabel: "Numéro de téléphone",
+                notesLabel: "Notes supplémentaires (optionnel)",
+                locationBtnText: "Partager ma position GPS",
+                locationStatusText: "Position détectée avec succès!",
+                deliveryFeeLabel: "Frais de livraison",
+                submitBtnText: "Envoyer la commande",
+                trackingStatusPending: "En attente d'acceptation",
+                trackingStatusAccepted: "Commande acceptée",
+                trackingStatusOnWay: "Livreur en route",
+                trackingStatusDelivered: "Livré",
+                step1Label: "Commandé",
+                step2Label: "Accepté",
+                step3Label: "Au restaurant",
+                step4Label: "En route",
+                step5Label: "Livré",
+                callBtnText: "Appeler le livreur",
+                invoiceTitle: "Facture",
+                footerText: "Livraison rapide et fiable partout",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                earningsLabel: "Gains aujourd'hui",
+                newOrdersTitle: "Nouvelles commandes",
+                noOrdersText: "Aucune nouvelle commande",
+                acceptBtn: "Accepter",
+                rejectBtn: "Refuser",
+                statusBtn1Text: "En route vers le restaurant",
+                statusBtn2Text: "Commande passée",
+                statusBtn3Text: "En route vers vous",
+                uploadBtnText: "Photographier la facture",
+                completeBtnText: "Confirmer la livraison",
+                successTitle: "Livraison réussie!",
+                successMessage: "Merci d'utiliser Comondi",
+                closeModalBtn: "Fermer",
+                notifTitle: "Nouvelle commande!",
+                notifMessage: "Vous avez une nouvelle livraison",
+                locatingText: "Localisation en cours...",
+                footerText2: "Gagnez de l'argent en livrant",
+                orderSentSuccess: "Commande envoyée avec succès!",
+                waitingDriver: "En attente d'un livreur..."
+            }
+        };
+
+        // ==================== GLOBAL VARIABLES ====================
+        let currentLang = 'ar';
+        let currentRole = '';
+        let customerLocation = null;
+        let deliveryLocation = null;
+        let customerMap = null;
+        let deliveryMap = null;
+        let activeOrderMap = null;
+        let currentOrderId = null;
+        let activeOrderData = null;
+        let customerMarker = null;
+        let deliveryMarker = null;
+        let watchId = null;
+        let ordersListener = null;
+        let isOnline = false;
+        let todayEarnings = 0;
+
+        // Food suggestions
+        const foodSuggestions = [
+            'Sandwich', 'Tacos', 'Pizza', 'Burger', 'Shawarma', 'Poulet rôti',
+            'Grillades', 'Couscous', 'Pasta', 'Salade', 'Panini', 'Hot Dog',
+            'Frites', 'Escalope', 'Kebab', 'Makloub'
+        ];
+
+        // Shop suggestions
+        const shopSuggestions = [
+            'ADM Food', 'Pizza House', 'Burger King', 'KFC', 'McDonald\'s',
+            'Quick', 'La Grillardière', 'Le Délice', 'Chez Mouh', 'Food Corner'
+        ];
+
+        // ==================== INITIALIZATION ====================
+        window.onload = function() {
+            // Create particles
+            createParticles();
+            
+            // Hide loader
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 2000);
+
+            // Setup input suggestions
+            setupSuggestions('foodName', 'foodSuggestions', foodSuggestions);
+            setupSuggestions('shopName', 'shopSuggestions', shopSuggestions);
+
+            // Check form completion
+            document.getElementById('foodName').addEventListener('input', checkFormCompletion);
+            document.getElementById('shopName').addEventListener('input', checkFormCompletion);
+            document.getElementById('customerPhone').addEventListener('input', checkFormCompletion);
+        };
+
+        // ==================== PARTICLE EFFECTS ====================
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // ==================== LANGUAGE ====================
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update body direction
+            document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Update language buttons
+            document.getElementById('langAr').classList.toggle('active', lang === 'ar');
+            document.getElementById('langFr').classList.toggle('active', lang === 'fr');
+
+            // Update all text elements
+            updateTranslations();
+        }
+
+        function toggleLanguage() {
+            setLanguage(currentLang === 'ar' ? 'fr' : 'ar');
+        }
+
+        function updateTranslations() {
+            const t = translations[currentLang];
+            
+            // Landing page
+            document.getElementById('tagline').textContent = t.tagline;
+            document.getElementById('customerRoleTitle').textContent = t.customerRoleTitle;
+            document.getElementById('customerRoleDesc').textContent = t.customerRoleDesc;
+            document.getElementById('deliveryRoleTitle').textContent = t.deliveryRoleTitle;
+            document.getElementById('deliveryRoleDesc').textContent = t.deliveryRoleDesc;
+
+            // Customer form
+            document.getElementById('formTitle').textContent = t.formTitle;
+            document.getElementById('foodLabel').textContent = t.foodLabel;
+            document.getElementById('shopLabel').textContent = t.shopLabel;
+            document.getElementById('phoneLabel').textContent = t.phoneLabel;
+            document.getElementById('notesLabel').textContent = t.notesLabel;
+            document.getElementById('locationBtnText').textContent = t.locationBtnText;
+            document.getElementById('locationStatusText').textContent = t.locationStatusText;
+            document.getElementById('deliveryFeeLabel').textContent = t.deliveryFeeLabel;
+            document.getElementById('submitBtnText').textContent = t.submitBtnText;
+
+            // Tracking
+            document.getElementById('step1Label').textContent = t.step1Label;
+            document.getElementById('step2Label').textContent = t.step2Label;
+            document.getElementById('step3Label').textContent = t.step3Label;
+            document.getElementById('step4Label').textContent = t.step4Label;
+            document.getElementById('step5Label').textContent = t.step5Label;
+            document.getElementById('callBtnText').textContent = t.callBtnText;
+
+            // Delivery page
+            document.getElementById('onlineStatusText').textContent = isOnline ? t.onlineStatus : t.offlineStatus;
+            document.getElementById('earningsLabel').textContent = t.earningsLabel;
+            document.getElementById('newOrdersTitle').textContent = t.newOrdersTitle;
+            document.getElementById('noOrdersText').textContent = t.noOrdersText;
+            document.getElementById('statusBtn1Text').textContent = t.statusBtn1Text;
+            document.getElementById('statusBtn2Text').textContent = t.statusBtn2Text;
+            document.getElementById('statusBtn3Text').textContent = t.statusBtn3Text;
+            document.getElementById('uploadBtnText').textContent = t.uploadBtnText;
+            document.getElementById('completeBtnText').textContent = t.completeBtnText;
+
+            // Footer
+            document.getElementById('footerText').textContent = t.footerText;
+            document.getElementById('footerText2').textContent = t.footerText2;
+
+            // Modal
+            document.getElementById('successTitle').textContent = t.successTitle;
+            document.getElementById('successMessage').textContent = t.successMessage;
+            document.getElementById('closeModalBtn').textContent = t.closeModalBtn;
+        }
+
+        // ==================== ROLE SELECTION ====================
+        function selectRole(role) {
+            currentRole = role;
+            document.getElementById('landingPage').style.display = 'none';
+
+            if (role === 'customer') {
+                document.getElementById('customerApp').classList.add('active');
+                setTimeout(() => initCustomerMap(), 100);
+            } else {
+                document.getElementById('deliveryApp').classList.add('active');
+                setTimeout(() => initDeliveryMap(), 100);
+            }
+        }
+
+        function goHome() {
+            // Stop any active listeners
+            if (ordersListener) {
+                ordersListener();
+            }
+            if (watchId) {
+                navigator.geolocation.clearWatch(watchId);
+            }
+
+            // Hide all apps
+            document.getElementById('customerApp').classList.remove('active');
+            document.getElementById('deliveryApp').classList.remove('active');
+            document.getElementById('orderFormSection').style.display = 'block';
+            document.getElementById('trackingSection').classList.remove('active');
+            document.getElementById('deliveryOrdersList').style.display = 'block';
+            document.getElementById('activeOrderView').classList.remove('active');
+
+            // Show landing page
+            document.getElementById('landingPage').style.display = 'block';
+
+            // Reset form
+            document.getElementById('foodName').value = '';
+            document.getElementById('shopName').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('orderNotes').value = '';
+            document.getElementById('locationBtn').classList.remove('located');
+            document.getElementById('locationStatus').classList.remove('success');
+            document.getElementById('submitOrder').disabled = true;
+            customerLocation = null;
+        }
+
+        // ==================== SUGGESTIONS ====================
+        function setupSuggestions(inputId, suggestionsId, data) {
+            const input = document.getElementById(inputId);
+            const suggestions = document.getElementById(suggestionsId);
+
+            input.addEventListener('focus', () => {
+                showSuggestions(input.value, data, suggestions);
+            });
+
+            input.addEventListener('input', () => {
+                showSuggestions(input.value, data, suggestions);
+            });
+
+            input.addEventListener('blur', () => {
+                setTimeout(() => {
+                    suggestions.classList.remove('active');
+                }, 200);
+            });
+        }
+
+        function showSuggestions(value, data, container) {
+            const filtered = data.filter(item => 
+                item.toLowerCase().includes(value.toLowerCase())
+            );
+
+            if (filtered.length > 0 && value.length > 0) {
+                container.innerHTML = filtered.map(item => `
+                    <div class="suggestion-item" onclick="selectSuggestion('${container.previousElementSibling.querySelector('input').id}', '${item}', '${container.id}')">
+                        <i class="fas fa-utensils"></i>
+                        ${item}
+                    </div>
+                `).join('');
+                container.classList.add('active');
+            } else {
+                container.classList.remove('active');
+            }
+        }
+
+        function selectSuggestion(inputId, value, suggestionsId) {
+            document.getElementById(inputId).value = value;
+            document.getElementById(suggestionsId).classList.remove('active');
+            checkFormCompletion();
+        }
+
+        // ==================== LOCATION ====================
+        function getLocation() {
+            const btn = document.getElementById('locationBtn');
+            const status = document.getElementById('locationStatus');
+            const t = translations[currentLang];
+
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${t.locatingText}`;
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        customerLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        
+                        btn.innerHTML = `<i class="fas fa-check"></i> ${t.locationStatusText}`;
+                        btn.classList.add('located');
+                        status.classList.add('success');
+                        checkFormCompletion();
+                    },
+                    (error) => {
+                        btn.innerHTML = `<i class="fas fa-times"></i> فشل في تحديد الموقع`;
+                        setTimeout(() => {
+                            btn.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${t.locationBtnText}`;
+                        }, 2000);
+                    },
+                    { enableHighAccuracy: true }
+                );
+            }
+        }
+
+        // ==================== FORM VALIDATION ====================
+        function checkFormCompletion() {
+            const food = document.getElementById('foodName').value.trim();
+            const shop = document.getElementById('shopName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            
+            const isComplete = food && shop && phone && customerLocation;
+            document.getElementById('submitOrder').disabled = !isComplete;
+        }
+
+        // ==================== SUBMIT ORDER ====================
+        function submitOrder() {
+            const orderId = 'ORD' + Date.now();
+            const orderData = {
+                id: orderId,
+                food: document.getElementById('foodName').value.trim(),
+                shop: document.getElementById('shopName').value.trim(),
+                phone: document.getElementById('customerPhone').value.trim(),
+                notes: document.getElementById('orderNotes').value.trim(),
+                location: customerLocation,
+                status: 'pending',
+                price: 100,
+                timestamp: Date.now(),
+                deliveryId: null,
+                deliveryPhone: null,
+                deliveryLocation: null,
+                invoiceUrl: null
+            };
+
+            // Save to Firebase
+            database.ref('orders/' + orderId).set(orderData)
+                .then(() => {
+                    currentOrderId = orderId;
+                    showTracking(orderData);
+                    listenToOrderUpdates(orderId);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('حدث خطأ في إرسال الطلب');
+                });
+        }
+
+        // ==================== CUSTOMER TRACKING ====================
+        function showTracking(orderData) {
+            document.getElementById('orderFormSection').style.display = 'none';
+            document.getElementById('trackingSection').classList.add('active');
+            document.getElementById('trackingOrderId').textContent = '#' + orderData.id.slice(-5);
+
+            // Initialize map
+            if (!customerMap) {
+                customerMap = L.map('customerMap').setView([orderData.location.lat, orderData.location.lng], 15);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(customerMap);
+            }
+
+            // Add customer marker
+            const customerIcon = L.divIcon({
+                html: '<div style="font-size: 30px; animation: bounce 1s infinite;">👤</div>',
+                className: 'customer-icon',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40]
+            });
+
+            customerMarker = L.marker([orderData.location.lat, orderData.location.lng], { icon: customerIcon })
+                .addTo(customerMap)
+                .bindPopup('موقعك');
+        }
+
+        function listenToOrderUpdates(orderId) {
+            database.ref('orders/' + orderId).on('value', (snapshot) => {
+                const order = snapshot.val();
+                if (!order) return;
+
+                updateTrackingUI(order);
+
+                // Update delivery location on map
+                if (order.deliveryLocation && customerMap) {
+                    updateDeliveryMarker(order.deliveryLocation);
+                    checkProximity(order.location, order.deliveryLocation);
+                }
+
+                // Show invoice if available
+                if (order.invoiceUrl) {
+                    document.getElementById('invoiceSection').classList.add('active');
+                    document.getElementById('invoiceImage').src = order.invoiceUrl;
+                }
+
+                // Check if delivered
+                if (order.status === 'delivered') {
+                    showSuccessModal(order.price);
+                }
+            });
+        }
+
+        function updateTrackingUI(order) {
+            const statusEl = document.getElementById('trackingStatus');
+            const statusText = document.getElementById('trackingStatusText');
+            const t = translations[currentLang];
+            const progressLine = document.getElementById('progressLine');
+
+            // Reset all steps
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('step' + i).classList.remove('active', 'completed');
+            }
+
+            switch (order.status) {
+                case 'pending':
+                    statusEl.className = 'order-status pending';
+                    statusText.textContent = t.trackingStatusPending;
+                    document.getElementById('step1').classList.add('active');
+                    progressLine.style.width = '0%';
+                    break;
+                case 'accepted':
+                    statusEl.className = 'order-status accepted';
+                    statusText.textContent = t.trackingStatusAccepted;
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step2').classList.add('active');
+                    progressLine.style.width = '25%';
+                    showDeliveryInfo(order);
+                    break;
+                case 'going_to_shop':
+                    statusEl.className = 'order-status onway';
+                    statusText.textContent = t.statusBtn1Text;
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step2').classList.add('completed');
+                    document.getElementById('step3').classList.add('active');
+                    progressLine.style.width = '50%';
+                    break;
+                case 'order_received':
+                    statusEl.className = 'order-status onway';
+                    statusText.textContent = t.statusBtn2Text;
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step2').classList.add('completed');
+                    document.getElementById('step3').classList.add('completed');
+                    progressLine.style.width = '60%';
+                    break;
+                case 'on_the_way':
+                    statusEl.className = 'order-status onway';
+                    statusText.textContent = t.trackingStatusOnWay;
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step2').classList.add('completed');
+                    document.getElementById('step3').classList.add('completed');
+                    document.getElementById('step4').classList.add('active');
+                    progressLine.style.width = '75%';
+                    break;
+                case 'delivered':
+                    statusEl.className = 'order-status delivered';
+                    statusText.textContent = t.trackingStatusDelivered;
+                    for (let i = 1; i <= 5; i++) {
+                        document.getElementById('step' + i).classList.add('completed');
+                    }
+                    progressLine.style.width = '100%';
+                    break;
+            }
+        }
+
+        function showDeliveryInfo(order) {
+            const deliveryInfo = document.getElementById('deliveryInfo');
+            deliveryInfo.classList.add('active');
+            document.getElementById('deliveryName').textContent = 'الموصل';
+            document.getElementById('callDelivery').href = 'tel:' + order.deliveryPhone;
+        }
+
+        function updateDeliveryMarker(location) {
+            const deliveryIcon = L.divIcon({
+                html: '<div style="font-size: 35px; animation: bounce 1s infinite;">🛵</div>',
+                className: 'delivery-icon',
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            });
+
+            if (deliveryMarker) {
+                deliveryMarker.setLatLng([location.lat, location.lng]);
+            } else {
+                deliveryMarker = L.marker([location.lat, location.lng], { icon: deliveryIcon })
+                    .addTo(customerMap)
+                    .bindPopup('موصل الطعام');
+            }
+
+            // Fit bounds to show both markers
+            if (customerMarker && deliveryMarker) {
+                const group = new L.featureGroup([customerMarker, deliveryMarker]);
+                customerMap.fitBounds(group.getBounds().pad(0.1));
+            }
+        }
+
+        function checkProximity(customerLoc, deliveryLoc) {
+            const distance = getDistance(customerLoc.lat, customerLoc.lng, deliveryLoc.lat, deliveryLoc.lng);
+            
+            // If within 50 meters
+            if (distance < 50) {
+                database.ref('orders/' + currentOrderId).update({
+                    status: 'delivered'
+                });
+            }
+        }
+
+        function getDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371e3; // meters
+            const φ1 = lat1 * Math.PI / 180;
+            const φ2 = lat2 * Math.PI / 180;
+            const Δφ = (lat2 - lat1) * Math.PI / 180;
+            const Δλ = (lon2 - lon1) * Math.PI / 180;
+
+            const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+                Math.cos(φ1) * Math.cos(φ2) *
+                Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+            return R * c;
+        }
+
+        // ==================== DELIVERY FUNCTIONS ====================
+        function initDeliveryMap() {
+            if (!deliveryMap) {
+                deliveryMap = L.map('deliveryMap').setView([36.7538, 3.0588], 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(deliveryMap);
+            }
+        }
+
+        function toggleOnlineStatus() {
+            isOnline = document.getElementById('onlineToggle').checked;
+            const statusText = document.getElementById('onlineStatusText');
+            const t = translations[currentLang];
+
+            statusText.textContent = isOnline ? t.onlineStatus : t.offlineStatus;
+            statusText.classList.toggle('active', isOnline);
+
+            if (isOnline) {
+                startListeningForOrders();
+                startLocationTracking();
+            } else {
+                if (ordersListener) ordersListener();
+                if (watchId) navigator.geolocation.clearWatch(watchId);
+            }
+        }
+
+        function startListeningForOrders() {
+            ordersListener = database.ref('orders').orderByChild('status').equalTo('pending').on('value', (snapshot) => {
+                const orders = snapshot.val();
+                displayOrders(orders);
+            });
+        }
+
+        function displayOrders(orders) {
+            const container = document.getElementById('ordersList');
+            const noOrders = document.getElementById('noOrders');
+            const soundWave = document.getElementById('soundWave');
+            const t = translations[currentLang];
+
+            if (!orders || Object.keys(orders).length === 0) {
+                container.innerHTML = '';
+                container.appendChild(noOrders);
+                noOrders.style.display = 'block';
+                soundWave.classList.add('hidden');
+                return;
+            }
+
+            noOrders.style.display = 'none';
+            soundWave.classList.remove('hidden');
+
+            // Play notification sound
+            playNotificationSound();
+            showNotification();
+
+            container.innerHTML = Object.values(orders).map(order => `
+                <div class="order-card new" id="order-${order.id}">
+                    <div class="order-card-header">
+                        <div>
+                            <div class="order-time">
+                                <i class="far fa-clock"></i>
+                                ${new Date(order.timestamp).toLocaleTimeString()}
+                            </div>
+                        </div>
+                        <div class="order-price">${order.price} دج</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-item">
+                            <i class="fas fa-hamburger"></i>
+                            <strong>${order.food}</strong>
+                        </div>
+                        <div class="order-item">
+                            <i class="fas fa-store"></i>
+                            <span>${order.shop}</span>
+                        </div>
+                        <div class="order-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>المسافة: ~${Math.floor(Math.random() * 5 + 1)} كم</span>
+                        </div>
+                    </div>
+                    <div class="order-actions">
+                        <button class="accept-btn" onclick="acceptOrder('${order.id}')">
+                            <i class="fas fa-check"></i>
+                            ${t.acceptBtn || 'قبول'}
+                        </button>
+                        <button class="reject-btn" onclick="rejectOrder('${order.id}')">
+                            <i class="fas fa-times"></i>
+                            ${t.rejectBtn || 'رفض'}
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function playNotificationSound() {
+            const audio = document.getElementById('notificationSound');
+            audio.currentTime = 0;
+            audio.play().catch(e => console.log('Audio play failed:', e));
+        }
+
+        function showNotification() {
+            const notif = document.getElementById('notification');
+            notif.classList.add('active');
+            setTimeout(() => {
+                notif.classList.remove('active');
+            }, 5000);
+        }
+
+        function acceptOrder(orderId) {
+            // Get order data first
+            database.ref('orders/' + orderId).once('value').then((snapshot) => {
+                const order = snapshot.val();
+                if (!order || order.status !== 'pending') {
+                    alert('هذا الطلب لم يعد متاحاً');
+                    return;
+                }
+
+                // Update order
+                database.ref('orders/' + orderId).update({
+                    status: 'accepted',
+                    deliveryId: 'delivery_' + Date.now(),
+                    deliveryPhone: '0555123456'
+                }).then(() => {
+                    currentOrderId = orderId;
+                    activeOrderData = order;
+                    showActiveOrder(order);
+                });
+            });
+        }
+
+        function rejectOrder(orderId) {
+            document.getElementById('order-' + orderId).remove();
+        }
+
+        function showActiveOrder(order) {
+            document.getElementById('deliveryOrdersList').style.display = 'none';
+            document.getElementById('activeOrderView').classList.add('active');
+
+            document.getElementById('activeOrderId').textContent = '#' + order.id.slice(-5);
+            document.getElementById('activeOrderPrice').textContent = order.price + ' دج';
+            document.getElementById('customerInitial').textContent = order.phone.charAt(0);
+            document.getElementById('customerPhoneDisplay').textContent = order.phone;
+            document.getElementById('customerPhoneLink').href = 'tel:+213' + order.phone;
+            document.getElementById('orderFoodName').textContent = order.food;
+            document.getElementById('orderShopName').textContent = order.shop;
+            document.getElementById('orderNotesDisplay').textContent = order.notes || 'لا توجد ملاحظات';
+
+            // Initialize map
+            setTimeout(() => {
+                if (!activeOrderMap) {
+                    activeOrderMap = L.map('activeOrderMap').setView([order.location.lat, order.location.lng], 15);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(activeOrderMap);
+                }
+
+                const customerIcon = L.divIcon({
+                    html: '<div style="font-size: 35px; animation: bounce 1s infinite;">👤</div>',
+                    className: 'customer-icon',
+                    iconSize: [50, 50],
+                    iconAnchor: [25, 50]
+                });
+
+                L.marker([order.location.lat, order.location.lng], { icon: customerIcon })
+                    .addTo(activeOrderMap)
+                    .bindPopup('موقع الزبون')
+                    .openPopup();
+            }, 100);
+        }
+
+        function startLocationTracking() {
+            if (navigator.geolocation) {
+                watchId = navigator.geolocation.watchPosition(
+                    (position) => {
+                        deliveryLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+
+                        if (currentOrderId) {
+                            database.ref('orders/' + currentOrderId).update({
+                                deliveryLocation: deliveryLocation
+                            });
+                        }
+                    },
+                    (error) => console.log('Location error:', error),
+                    { enableHighAccuracy: true, maximumAge: 5000 }
+                );
+            }
+        }
+
+        function updateStatus(status) {
+            if (!currentOrderId) return;
+
+            // Update button styles
+            document.querySelectorAll('.status-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.status-btn').classList.add('active');
+
+            database.ref('orders/' + currentOrderId).update({
+                status: status
+            });
+        }
+
+        function uploadInvoice(event) {
+            const file = event.target.files[0];
+            if (!file || !currentOrderId) return;
+
+            const preview = document.getElementById('invoicePreview');
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+
+            // Upload to Firebase Storage
+            const storageRef = storage.ref('invoices/' + currentOrderId + '.jpg');
+            storageRef.put(file).then((snapshot) => {
+                snapshot.ref.getDownloadURL().then((url) => {
+                    database.ref('orders/' + currentOrderId).update({
+                        invoiceUrl: url
+                    });
+                });
+            });
+        }
+
+        function completeDelivery() {
+            if (!currentOrderId) return;
+
+            database.ref('orders/' + currentOrderId).update({
+                status: 'delivered'
+            }).then(() => {
+                todayEarnings += activeOrderData.price;
+                document.getElementById('todayEarnings').textContent = todayEarnings + ' دج';
+                showSuccessModal(activeOrderData.price);
+
+                // Reset view
+                setTimeout(() => {
+                    document.getElementById('activeOrderView').classList.remove('active');
+                    document.getElementById('deliveryOrdersList').style.display = 'block';
+                    currentOrderId = null;
+                    activeOrderData = null;
+                    
+                    // Reset status buttons
+                    document.querySelectorAll('.status-btn').forEach(btn => btn.classList.remove('active'));
+                    document.getElementById('invoicePreview').style.display = 'none';
+                }, 2000);
+            });
+        }
+
+        // ==================== MAPS INITIALIZATION ====================
+        function initCustomerMap() {
+            if (!customerMap && document.getElementById('customerMap')) {
+                customerMap = L.map('customerMap').setView([36.7538, 3.0588], 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(customerMap);
+            }
+        }
+
+        // ==================== MODAL ====================
+        function showSuccessModal(amount) {
+            document.getElementById('successAmount').textContent = amount + ' دج';
+            document.getElementById('successModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
